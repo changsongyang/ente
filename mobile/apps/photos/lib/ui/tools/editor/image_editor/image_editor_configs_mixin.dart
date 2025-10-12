@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import "package:pro_image_editor/mixins/converted_configs.dart";
-import "package:pro_image_editor/models/editor_callbacks/pro_image_editor_callbacks.dart";
-import "package:pro_image_editor/models/editor_configs/pro_image_editor_configs.dart";
+import 'package:pro_image_editor/pro_image_editor.dart';
 
 /// A mixin providing access to simple editor configurations.
 mixin SimpleConfigsAccess on StatefulWidget {
@@ -9,11 +7,9 @@ mixin SimpleConfigsAccess on StatefulWidget {
   ProImageEditorCallbacks get callbacks;
 }
 
-mixin SimpleConfigsAccessState<T extends StatefulWidget>
-    on State<T>, ImageEditorConvertedConfigs {
+mixin SimpleConfigsAccessState<T extends StatefulWidget> on State<T> {
   SimpleConfigsAccess get _widget => (widget as SimpleConfigsAccess);
 
-  @override
   ProImageEditorConfigs get configs => _widget.configs;
 
   ProImageEditorCallbacks get callbacks => _widget.callbacks;
